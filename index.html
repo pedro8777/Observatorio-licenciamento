@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatório do Licenciamento Ambiental</title>
+    
+    <link rel="icon" type="image/png" href="Images/favicon.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navegação Glassmorphism -->
+    <!-- Navegação Glassmorphism -->
+    <header id="navbar">
+        <div class="logo">
+            <i class="ph ph-leaf"></i>
+            <h1>Observatório <span>do licenciamento ambiental</span></h1>
+        </div>
+        
+        <!-- NOVO: Botão Menu Hambúrguer (Aparece apenas em mobile) -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu">
+            <i class="ph ph-list"></i>
+        </button>
+
+        <nav>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" data-target="home" class="active">Início</a></li>
+                <li><a href="#" data-target="stf">De Olho no STF</a></li>
+                <li><a href="#" data-target="sobre">Quem Somos</a></li>
+                
+                <!-- ABAS OCULTAS NO MENU SUPERIOR -->
+                <li style="display: none;"><a href="#" data-target="metodologia">Metodologia</a></li>
+                <li style="display: none;"><a href="#" data-target="licenciamento">O Licenciamento</a></li>
+                <li style="display: none;"><a href="#" data-target="estados">Estados</a></li>
+                <li style="display: none;"><a href="#" data-target="ibama">Ibama</a></li>
+                <li style="display: none;"><a href="#" data-target="congresso">Congresso</a></li>
+                
+                <li id="nav-login-btn"><a href="#" id="btn-abrir-login" class="login-nav-btn">Acesso Pesquisador</a></li>
+                
+                <li id="nav-user-menu" class="user-dropdown" style="display: none;">
+                    <a href="#" class="login-nav-btn user-menu-btn">
+                        <i class="ph ph-user-circle"></i> Conta <i class="ph ph-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-content glass-card">
+
+                        <li><a href="#" data-target="espaco"><i class="ph ph-books"></i> Espaço do Pesquisador</a></li>
+                        <li><a href="#" data-target="historico-atividades"><i class="ph ph-clock-counter-clockwise"></i> Histórico de Atividade</a></li>
+                        <li><a href="#" data-target="perfil"><i class="ph ph-identification-card"></i> Minha Conta</a></li>
+                        <li><hr></li>
+                        <li><a href="#" id="btn-logout" class="logout-link"><i class="ph ph-sign-out"></i> Sair</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- PÁGINA INICIAL REDESENHADA E MAIS ESPAÇADA -->
+        <section id="home" class="content-section active">
+            
+            <div class="hero-banner" style="padding: 6rem 3rem 8rem 3rem; margin-bottom: 0;">
+                <div class="hero-content">
+                    <span class="badge">Inteligência Jurídica</span>
+                    <h2>A transição do Licenciamento Ambiental em foco.</h2>
+                    <p>Mapeamos, traduzimos e monitoramos as inovações regulatórias e o controle de constitucionalidade no Brasil.</p>
+                </div>
+            </div>
+
+            <!-- GRELHA DE DESTAQUES -->
+            <div class="features-grid">
+                
+                <!-- 1. Destaque Principal (STF) -->
+                <div class="feature-card-main" data-target="stf">
+                    <div class="icon-wrap">
+                        <i class="ph ph-scales"></i>
+                    </div>
+                    <div>
+                        <h2 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 0.5rem;">De Olho no STF</h2>
+                        <p style="color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.2rem; line-height: 1.6;">
+                            Acompanhe em tempo real o controle de constitucionalidade de normas ambientais. O nosso banco de dados detalha relatores, teses doutrinárias, dispositivos constitucionais invocados e o posicionamento rigoroso dos <i>Amici Curiae</i>.
+                        </p>
+                        <span style="color: var(--accent); font-weight: 600; font-size: 1rem; display: inline-flex; align-items: center; gap: 8px;">Acessar Base de Jurisprudência <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- 2 e 3. Destaques Secundários Lado a Lado -->
+                <div class="secondary-grid">
+                    <!-- Metodologia -->
+                    <div class="feature-card-secondary" data-target="metodologia">
+                        <div class="icon-wrap" style="background: #f0f9ff; color: #0284c7;">
+                            <i class="ph ph-magnifying-glass"></i>
+                        </div>
+                        <h3 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 0.5rem;">Metodologia de Análise</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; flex-grow: 1;">
+                            Entenda o rigor por trás dos nossos dados. Uma abordagem focada na curadoria qualitativa de peças processuais e no mapeamento das frentes de lobby institucional.
+                        </p>
+                        <span style="color: #0284c7; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; margin-top: 1rem;">Conhecer o Método <i class="ph ph-arrow-right"></i></span>
+                    </div>
+
+                    <!-- Licenciamento -->
+                    <div class="feature-card-secondary" data-target="licenciamento">
+                        <div class="icon-wrap" style="background: #fffbeb; color: #d97706;">
+                            <i class="ph ph-leaf"></i>
+                        </div>
+                        <h3 style="color: var(--text-dark); font-size: 1.3rem; margin-bottom: 0.5rem;">O Licenciamento</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; flex-grow: 1;">
+                            O alicerce da Política Nacional do Meio Ambiente. Estude os fundamentos, as fases (LP, LI, LO) e os aspetos críticos da transição para a nova Lei Geral.
+                        </p>
+                        <span style="color: #d97706; font-weight: 600; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 8px; margin-top: 1rem;">Estudar o Instituto <i class="ph ph-arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOVO: RADAR DE NOTÍCIAS AUTOMÁTICO -->
+            <div class="news-section-wrapper">
+                <div class="news-header">
+                    <div>
+                        <h3><i class="ph ph-newspaper"></i> Radar do Licenciamento</h3>
+                        <p>Últimas notícias dos principais veículos e portais jurídicos.</p>
+                    </div>
+                </div>
+                
+                <div class="news-grid" id="news-container">
+                    <!-- O JavaScript vai injetar os cartões aqui -->
+                    <div class="news-loading">
+                        <i class="ph ph-spinner ph-spin"></i>
+                        <p>A sincronizar com os portais de notícias...</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ABA 2: DE OLHO NO STF (Destaque Principal) -->
+        <section id="stf" class="content-section fade-in">
+            <div class="section-header">
+                <h2>De Olho no STF</h2>
+                <p>Controle de constitucionalidade e segurança jurídica no licenciamento.</p>
+            </div>
+            
+            <div style="background: var(--white); padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); margin-bottom: 2rem;">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="flex: 2; min-width: 250px; position: relative;">
+                        <i class="ph ph-magnifying-glass" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem;"></i>
+                        <input type="text" id="busca-adi-geral" placeholder="Buscar por palavra-chave, tema ou número..." style="width: 100%; padding: 12px 15px 12px 42px; border-radius: 8px; border: 1px solid #cbd5e1; outline: none; font-family: 'Inter', sans-serif; transition: border-color 0.3s;">
+                    </div>
+                    <div style="flex: 1; min-width: 200px; position: relative;">
+                        <i class="ph ph-user" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem;"></i>
+                        <input type="text" id="filtro-adi-relator" placeholder="Filtrar por Relator(a)..." style="width: 100%; padding: 12px 15px 12px 42px; border-radius: 8px; border: 1px solid #cbd5e1; outline: none; font-family: 'Inter', sans-serif; transition: border-color 0.3s;">
+                    </div>
+                    <div style="flex: 1; min-width: 200px; position: relative;">
+                        <i class="ph ph-users" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); font-size: 1.2rem;"></i>
+                        <input type="text" id="filtro-adi-requerente" placeholder="Filtrar por Requerente..." style="width: 100%; padding: 12px 15px 12px 42px; border-radius: 8px; border: 1px solid #cbd5e1; outline: none; font-family: 'Inter', sans-serif; transition: border-color 0.3s;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-grid" id="stf-grid">
+                <p style="text-align: center; color: var(--text-muted); grid-column: 1 / -1;">Carregando análises do STF...</p>
+            </div>
+        </section>
+
+        <!-- ABA 3: METODOLOGIA -->
+        <!-- ABA 3: METODOLOGIA -->
+        <section id="metodologia" class="content-section fade-in">
+            <div class="section-header">
+                <h2>Metodologia de Análise</h2>
+                <p>Como transformamos dados processuais em inteligência jurídica.</p>
+            </div>
+            
+            <div class="methodology-container">
+                <p class="methodology-intro">
+                    O Observatório do Licenciamento utiliza uma abordagem híbrida de jurimetria e análise qualitativa aprofundada. O nosso foco principal de análise recai sobre o Supremo Tribunal Federal (STF), mapeando Ações Diretas de Inconstitucionalidade (ADIs) e o papel dos diferentes atores institucionais no debate ambiental.
+                </p>
+
+                <div class="method-step">
+                    <div class="method-icon"><i class="ph ph-funnel"></i></div>
+                    <div class="method-content">
+                        <h3>Triagem e Extração de Dados</h3>
+                        <p>Utilizamos automação direta com as bases de dados oficiais dos tribunais. O nosso sistema recupera petições iniciais, andamentos processuais e decisões em tempo real, garantindo que o banco de dados esteja sempre atualizado com a tramitação oficial.</p>
+                    </div>
+                </div>
+
+                <div class="method-step">
+                    <div class="method-icon icon-pink"><i class="ph ph-users-three"></i></div>
+                    <div class="method-content">
+                        <h3>Mapeamento de Atores (Lobby e Amicus Curiae)</h3>
+                        <p>Identificamos não apenas as normas questionadas, mas quem as questiona. Categorizamos os proponentes das ações e as entidades habilitadas como <em>Amicus Curiae</em>, traçando o seu perfil de atuação (governo, terceiro setor, entidades de classe) e o seu posicionamento argumentativo.</p>
+                    </div>
+                </div>
+
+                <div class="method-step">
+                    <div class="method-icon icon-green"><i class="ph ph-books"></i></div>
+                    <div class="method-content">
+                        <h3>Curadoria Qualitativa e Doutrinária</h3>
+                        <p>A nossa equipa de investigadores (focada no rigor académico) lê e extrai a essência técnica das peças processuais. Registamos os dispositivos da Constituição Federal invocados, os princípios ambientais em risco (Precaução, Prevenção, Vedação ao Retrocesso) e as obras doutrinárias utilizadas para fundamentar o debate.</p>
+                    </div>
+                </div>
+
+                <!-- NOVO: BOTÃO DE DOWNLOAD DO PDF -->
+                <div class="methodology-actions">
+                    <!-- Substitua o link em 'href' pelo caminho real do seu PDF quando o tiver -->
+                    <a href="Docs/Metodologia_Observatorio.pdf" target="_blank" download class="btn-download">
+                        <i class="ph ph-file-pdf"></i> Descarregar Metodologia Completa (PDF)
+                    </a>
+                </div>
+
+                <!-- NOVO: CAIXA DE DÚVIDAS E SUGESTÕES -->
+                <div class="methodology-contact-box">
+                    <h3>Ficou com alguma dúvida ou tem sugestões?</h3>
+                    <p>A transparência e o aprimoramento contínuo da nossa base de dados são fundamentais. Entre em contato com a nossa equipa de investigadores para esclarecimentos, sugestões metodológicas ou parcerias.</p>
+                    
+                    <div class="methodology-contact-buttons">
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp-outline">
+                            <i class="ph ph-whatsapp-logo"></i> Chamar no WhatsApp
+                        </a>
+                        <a href="mailto:contato@sanfran.org.br" class="btn-email-outline">
+                            <i class="ph ph-envelope-simple"></i> Enviar E-mail
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABA 4: O LICENCIAMENTO -->
+        <!-- ABA 4: O LICENCIAMENTO -->
+        <section id="licenciamento" class="content-section fade-in">
+            <div class="section-header">
+                <h2>O Licenciamento Ambiental</h2>
+                <p>O principal instrumento de proteção da Política Nacional do Meio Ambiente.</p>
+            </div>
+            
+            <div class="licenciamento-container">
+                <p class="licenciamento-intro">
+                    O licenciamento ambiental é um procedimento administrativo executado pelos órgãos ambientais competentes, visando licenciar a instalação, ampliação, modificação e operação de atividades e empreendimentos que utilizam recursos ambientais, ou que sejam considerados efetiva ou potencialmente poluidores.
+                </p>
+
+                <div class="info-box">
+                    <h3><i class="ph ph-file-search"></i> Licença Prévia (LP)</h3>
+                    <p>Concedida na fase preliminar do planejamento do empreendimento. Avalia a localização, atesta a viabilidade ambiental e estabelece os requisitos básicos para as próximas fases.</p>
+                </div>
+
+                <div class="info-box info-box-yellow">
+                    <h3><i class="ph ph-hammer"></i> Licença de Instalação (LI)</h3>
+                    <p>Autoriza a instalação do empreendimento de acordo com as especificações constantes dos planos e projetos aprovados, incluindo as rigorosas medidas de controlo ambiental e condicionantes.</p>
+                </div>
+
+                <div class="info-box info-box-blue">
+                    <h3><i class="ph ph-factory"></i> Licença de Operação (LO)</h3>
+                    <p>Autoriza a operação da atividade apenas após a verificação do cumprimento efetivo do que consta nas licenças anteriores (LP e LI), atestando o funcionamento seguro das medidas de controlo ecológico.</p>
+                </div>
+
+                <div class="transition-box">
+                    <h3>A Transição e a Lei Geral</h3>
+                    <p>
+                        O Brasil encontra-se num momento crítico de transição regulatória. O debate estrutural nos tribunais superiores procura harmonizar — e muitas vezes flexibilizar — procedimentos estabelecidos, debatendo teses como a Licença por Adesão e Compromisso (LAC) ou as dispensas tácitas de licenciamento. 
+                        <br><br>
+                        O <strong>Observatório do Licenciamento Ambiental</strong> nasce precisamente desta necessidade: monitorar cientificamente e juridicamente se estas mudanças de paradigma configuram inovação administrativa legítima ou retrocesso ecológico à luz do Artigo 225 da Constituição Federal.
+                    </p>
+                </div>
+
+                 <!-- NOVA ÁREA: REFERÊNCIAS BIBLIOGRÁFICAS -->
+                <div class="references-section">
+                    <h3><i class="ph ph-books"></i> Referências Bibliográficas</h3>
+                    <ul class="references-list">
+                        <li>
+                            <i class="ph ph-bookmark-simple"></i>
+                            <p><strong>FARIAS, Talden.</strong> <em>Licenciamento Ambiental: Aspectos Teóricos e Práticos</em>. 7ª ed. Belo Horizonte: Fórum, 2021.</p>
+                        </li>
+                        <li>
+                            <i class="ph ph-bookmark-simple"></i>
+                            <p><strong>MILARÉ, Édis.</strong> <em>Direito do Ambiente</em>. 12ª ed. São Paulo: Revista dos Tribunais, 2020.</p>
+                        </li>
+                        <li>
+                            <i class="ph ph-bookmark-simple"></i>
+                            <p><strong>MACHADO, Paulo Affonso Leme.</strong> <em>Direito Ambiental Brasileiro</em>. 27ª ed. São Paulo: Malheiros, 2020.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- NOVA ÁREA: DOCUMENTOS E LINKS ÚTEIS -->
+                <div class="resources-section">
+                    <h3><i class="ph ph-folder-open"></i> Documentos e Links Úteis</h3>
+                    <div class="resources-grid">
+                        <!-- Lembre-se de colocar os links corretos no 'href' -->
+                        <a href="#" target="_blank" class="resource-card">
+                            <i class="ph ph-file-pdf"></i>
+                            <div>
+                                <h4>Lei Complementar 140/2011</h4>
+                                <span>Cooperação federativa no licenciamento</span>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="resource-card">
+                            <i class="ph ph-link"></i>
+                            <div>
+                                <h4>Resolução CONAMA 237/1997</h4>
+                                <span>Diretrizes e procedimentos gerais</span>
+                            </div>
+                        </a>
+                        <a href="#" target="_blank" class="resource-card">
+                            <i class="ph ph-file-text"></i>
+                            <div>
+                                <h4>Proposta da Lei Geral (PL 2159)</h4>
+                                <span>Texto atual em tramitação no Senado</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <!-- CAIXA DE CONTATO -->
+                <div class="methodology-contact-box">
+                    <h3>Ficou com alguma dúvida sobre o licenciamento?</h3>
+                    <p>A nossa equipa está à disposição para discutir as normativas, tirar dúvidas sobre o processo ou auxiliar em pesquisas académicas.</p>
+                    
+                    <div class="methodology-contact-buttons">
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp-outline">
+                            <i class="ph ph-whatsapp-logo"></i> Chamar no WhatsApp
+                        </a>
+                        <a href="mailto:contato@sanfran.org.br" class="btn-email-outline">
+                            <i class="ph ph-envelope-simple"></i> Enviar E-mail
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÕES OCULTAS (Mantidas no código para o futuro lançamento) -->
+        <section id="estados" class="content-section fade-in" style="display: none;"></section>
+        <section id="ibama" class="content-section fade-in" style="display: none;"></section>
+        <section id="congresso" class="content-section fade-in" style="display: none;"></section>
+
+        <!-- ESPAÇO DO PESQUISADOR -->
+        <section id="espaco" class="content-section fade-in container" style="padding: 4rem 2rem;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--primary-color);">Espaço do Pesquisador</h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem;">Área exclusiva para a equipa do Instituto Sanfran Ambiental.</p>
+            </div>
+
+            <div id="area-botoes-cadastros" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 2rem; flex-wrap: wrap;">
+                <button id="btn-abrir-form-adi" class="btn-primary" style="font-size: 1.1rem; padding: 15px 30px; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="ph ph-scales" style="font-size: 1.4rem;"></i> Cadastrar Análise STF (ADI)
+                </button>
+                <button id="btn-abrir-form-congresso" class="btn-primary" style="background: #db2777; font-size: 1.1rem; padding: 15px 30px; display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="ph ph-bank" style="font-size: 1.4rem;"></i> Cadastrar Análise Legislativa (PL/PEC)
+                </button>
+            </div>
+
+            <!-- FORMULÁRIO STF (ADI) -->
+            <div class="profile-container" id="container-form-adi" style="display: none;">
+                <div class="profile-form-card glass-card" style="flex: 1; width: 100%; position: relative;">
+                    <span id="fechar-form-adi" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; color: var(--text-muted); cursor: pointer;" title="Cancelar">&times;</span>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1.5rem;"><i class="ph ph-scales"></i> Mapeamento de ADI</h3>
+                    <form id="form-adi">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adi-numero">Número da ADI (Curto)</label>
+                                <input type="text" id="adi-numero" placeholder="Ex: 7890" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="adi-relator">Ministro(a) Relator(a)</label>
+                                <input type="text" id="adi-relator" placeholder="Ex: Min. Silva Lima" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adi-link">Link do Processo (STF)</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="url" id="adi-link" placeholder="https://portal.stf.jus.br/..." required style="flex: 1; width: 100%;">
+                                    <button type="button" id="btn-buscar-stf" class="btn-action-mov" style="margin-top: 0; padding: 0 20px; white-space: nowrap;">
+                                        <i class="ph ph-magnifying-glass"></i> Preencher Auto
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="adi-status">Status no STF</label>
+                                <input type="text" id="adi-status" placeholder="Ex: Em tramitação" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="adi-titulo">Tema Principal (Título da Análise)</label>
+                            <input type="text" id="adi-titulo" placeholder="Ex: Flexibilização em Áreas de Transição" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="adi-analise">Análise Técnica do Impacto Ambiental</label>
+                            <textarea id="adi-analise" rows="4" placeholder="Descreva os principais impactos e teses discutidas..." required></textarea>
+                        </div>
+
+                        <!-- Containers dinâmicos -->
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;"><i class="ph ph-users"></i> Polo Ativo</h4>
+                            <div id="proponentes-container"></div>
+                            <button type="button" id="btn-add-proponente" class="btn-action-edit" style="margin-top: 10px;"><i class="ph ph-plus-circle"></i> Adicionar Proponente</button>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;"><i class="ph ph-handshake"></i> Amicus Curiae</h4>
+                            <div id="amicus-container"></div>
+                            <button type="button" id="btn-add-amicus" class="btn-action-edit" style="margin-top: 10px;"><i class="ph ph-plus-circle"></i> Adicionar Amicus Curiae</button>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: var(--primary-color); margin-bottom: 1rem;"><i class="ph ph-article"></i> Dispositivos Questionados</h4>
+                            <div id="dispositivos-container"></div>
+                            <button type="button" id="btn-add-dispositivo" class="btn-action-edit" style="margin-top: 10px;"><i class="ph ph-plus-circle"></i> Adicionar Dispositivo</button>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #86198f; margin-bottom: 1rem;"><i class="ph ph-leaf"></i> Princípios Ambientais</h4>
+                            <div id="principios-container"></div>
+                            <button type="button" id="btn-add-principio" class="btn-action-edit" style="margin-top: 10px; background: #fdf4ff; color: #86198f; border: 1px solid #fbcfe8;"><i class="ph ph-plus-circle"></i> Adicionar Princípio</button>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #be185d; margin-bottom: 1rem;"><i class="ph ph-books"></i> Doutrina Invocada</h4>
+                            <div id="doutrinas-container"></div>
+                            <button type="button" id="btn-add-doutrina" class="btn-action-edit" style="margin-top: 10px; background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8;"><i class="ph ph-plus-circle"></i> Adicionar Doutrina</button>
+                        </div>
+                        
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #0e7490; margin-bottom: 1rem;"><i class="ph ph-book-bookmark"></i> Dispositivos Constitucionais</h4>
+                            <div id="constitucionais-container"></div>
+                            <button type="button" id="btn-add-constitucional" class="btn-action-edit" style="margin-top: 10px; background: #ecfeff; color: #0e7490; border: 1px solid #bcece0;"><i class="ph ph-plus-circle"></i> Adicionar Fundamento</button>
+                        </div>
+
+                        <button type="submit" id="btn-submit-adi" class="btn-primary" style="width: 100%; margin-top: 1rem;">Publicar Análise da ADI</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- FORMULÁRIO CONGRESSO NACIONAL -->
+            <div class="profile-container" id="container-form-congresso" style="display: none;">
+                <div class="profile-form-card glass-card" style="flex: 1; width: 100%; position: relative;">
+                    <span id="fechar-form-congresso" style="position: absolute; top: 20px; right: 25px; font-size: 2rem; color: var(--text-muted); cursor: pointer;" title="Cancelar">&times;</span>
+                    <h3 style="color: #db2777; margin-bottom: 1.5rem;"><i class="ph ph-bank"></i> Mapear Tramitação Legislativa</h3>
+                   
+                    <form id="form-congresso">
+                        <div class="form-row">
+                            <div class="form-group" style="flex: 1;">
+                                <label>Tipo de Norma / Proposição</label>
+                                <select id="cong-tipo" required>
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <optgroup label="Proposições">
+                                        <option value="PL">Projeto de Lei (PL)</option>
+                                        <option value="PEC">Proposta de Emenda (PEC)</option>
+                                        <option value="MPV">Medida Provisória (MPV)</option>
+                                        <option value="PDL">Projeto de Decreto (PDL)</option>
+                                    </optgroup>
+                                    <optgroup label="Normas em Vigor">
+                                        <option value="LEI">Lei Ordinária (LEI)</option>
+                                        <option value="LC">Lei Complementar (LC)</option>
+                                        <option value="EC">Emenda Constitucional (EC)</option>
+                                        <option value="RES">Resolução (RES)</option>
+                                        <option value="DEC">Decreto Executivo (DEC)</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+                            <div class="form-group" style="flex: 2;">
+                                <label>Número e Ano</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="text" id="cong-numero" placeholder="Ex: 2159/2021" required style="flex: 1; width: 100%;">
+                                    <button type="button" id="btn-buscar-cong" class="btn-action-mov" style="margin-top: 0; padding: 0 20px; white-space: nowrap;" title="Preenche automaticamente se for PL, PEC ou MPV">
+                                        <i class="ph ph-magnifying-glass"></i> Preencher Auto
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Autor(es) / Iniciativa</label>
+                                <input type="text" id="cong-autor" placeholder="Ex: Dep. Neri Geller / Presidência da República" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Partido e UF (Ou Órgão)</label>
+                                <input type="text" id="cong-partido" placeholder="Ex: PP/MT ou Poder Executivo" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Link Oficial (Câmara, Senado ou Planalto)</label>
+                            <input type="url" id="cong-link" placeholder="https://..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ementa Oficial</label>
+                            <textarea id="cong-ementa" rows="2" placeholder="O que diz a ementa do projeto ou lei..." required></textarea>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: #fdf2f8; padding: 1.5rem; border-radius: 8px; border: 1px solid #fbcfe8;">
+                            <h4 style="color: #be185d; margin-bottom: 1rem;"><i class="ph ph-thermometer"></i> Régua de Tramitação / Status</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Casa Atual / Órgão</label>
+                                    <select id="cong-casa" required>
+                                        <option value="Câmara dos Deputados">Câmara dos Deputados</option>
+                                        <option value="Senado Federal">Senado Federal</option>
+                                        <option value="Congresso Nacional (Sessão Conjunta)">Congresso Nacional</option>
+                                        <option value="Poder Executivo (Sancionada)">Poder Executivo (Sancionada)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Regime de Tramitação</label>
+                                    <select id="cong-regime" required>
+                                        <option value="Ordinário">Ordinário</option>
+                                        <option value="Prioridade">Prioridade</option>
+                                        <option value="Urgência">Urgência</option>
+                                        <option value="Em Vigor">Já em Vigor (Lei)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Status Atual</label>
+                                    <input type="text" id="cong-status" placeholder="Ex: Aguardando Parecer ou Sancionada" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Comissão Atual</label>
+                                    <input type="text" id="cong-comissao" placeholder="Ex: CMADS ou N/A" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Relator(a) Atual</label>
+                                    <input type="text" id="cong-relator" placeholder="Ex: Sen. Confúcio Moura ou N/A" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Posição do Relator</label>
+                                    <select id="cong-posicao">
+                                        <option value="Aguardando Parecer">Aguardando Parecer</option>
+                                        <option value="Favorável">Favorável ao Texto Original</option>
+                                        <option value="Substitutivo">Favorável com Substitutivo</option>
+                                        <option value="Contrário">Contrário / Arquivamento</option>
+                                        <option value="Sancionada">Norma Sancionada</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Resumo do Impacto no Licenciamento</label>
+                            <textarea id="cong-analise" rows="4" placeholder="Explique os riscos, flexibilizações e inovações gerais..." required></textarea>
+                        </div>
+
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <label>Institutos Jurídicos Afetados</label>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; background: rgba(0,0,0,0.02); border-radius: 8px;">
+                                <label><input type="checkbox" name="institutos-cong" value="EIA/RIMA"> EIA/RIMA</label>
+                                <label><input type="checkbox" name="institutos-cong" value="Licença por Adesão e Compromisso (LAC)"> Licença por Adesão (LAC)</label>
+                                <label><input type="checkbox" name="institutos-cong" value="Licença Única (LU)"> Licença Única (LU)</label>
+                                <label><input type="checkbox" name="institutos-cong" value="Aprovação Tácita (Decurso de Prazo)"> Aprovação Tácita</label>
+                                <label><input type="checkbox" name="institutos-cong" value="Competência Federativa"> Competência Federativa</label>
+                                <label><input type="checkbox" name="institutos-cong" value="Dispensa de Licenciamento"> Dispensa de Licença</label>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #db2777; margin-bottom: 1rem;"><i class="ph ph-text-align-left"></i> Texto da Norma e Comentários</h4>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 15px;">Fatie a lei em trechos cruciais e adicione o seu comentário a cada um deles.</p>
+                            <div id="trechos-lei-container"></div>
+                            <button type="button" id="btn-add-trecho-lei" class="btn-action-edit" style="margin-top: 10px; background: #fce7f3; color: #db2777; border: 1px solid #fbcfe8;">
+                                <i class="ph ph-plus-circle"></i> Adicionar Novo Trecho
+                            </button>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #db2777; margin-bottom: 1rem;"><i class="ph ph-file-dashed"></i> Outras Leis Afetadas</h4>
+                            <div id="normas-cong-container"></div>
+                            <button type="button" id="btn-add-norma-cong" class="btn-action-edit" style="margin-top: 10px; background: #fce7f3; color: #db2777; border: 1px solid #fbcfe8;">
+                                <i class="ph ph-plus-circle"></i> Adicionar Norma Afetada
+                            </button>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.01); padding: 1.5rem; border-radius: 8px; border: 1px solid #e2e8f0;">
+                            <h4 style="color: #db2777; margin-bottom: 1rem;"><i class="ph ph-users"></i> Mapa de Pressão e Lobby</h4>
+                            <div id="atores-cong-container"></div>
+                            <button type="button" id="btn-add-ator-cong" class="btn-action-edit" style="margin-top: 10px; background: #fce7f3; color: #db2777; border: 1px solid #fbcfe8;">
+                                <i class="ph ph-plus-circle"></i> Adicionar Ator / Frente Parlamentar
+                            </button>
+                        </div>
+
+                        <button type="submit" id="btn-submit-congresso" class="btn-primary" style="background: #db2777; width: 100%; margin-top: 1rem;">Publicar Análise</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- HISTÓRICO DO PESQUISADOR -->
+            <div style="margin-top: 5rem;">
+                <h2 style="font-size: 1.8rem; color: var(--text-dark); margin-bottom: 2rem; text-align: center;">Meu Histórico de Pesquisas</h2>
+                
+                <h3 style="color: var(--primary-color); border-bottom: 2px solid var(--accent); padding-bottom: 10px; margin-bottom: 20px;">
+                    <i class="ph ph-scales"></i> STF (Ações Diretas)
+                </h3>
+                <div id="historico-adi-grid" class="adi-grid" style="margin-bottom: 4rem;">
+                    <p style="text-align: center; grid-column: 1/-1;">Carregando seu histórico de ADIs...</p>
+                </div>
+
+                <h3 style="color: #db2777; border-bottom: 2px solid #fbcfe8; padding-bottom: 10px; margin-bottom: 20px;">
+                    <i class="ph ph-bank"></i> Congresso (PLs, PECs, etc.)
+                </h3>
+               <div id="historico-congresso-grid" class="adi-grid">
+                    <p style="text-align: center; grid-column: 1/-1;">Carregando seu histórico legislativo...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perfil -->
+        <section id="perfil" class="content-section fade-in">
+            <div class="section-header">
+                <h2>Meu Perfil</h2>
+                <p>Gerencie seus dados cadastrais e acadêmicos no Observatório.</p>
+            </div>
+            
+            <div class="profile-container">
+                <div class="profile-card glass-card">
+                    <div class="avatar-wrapper">
+                        <img id="avatar-preview" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Foto do Usuário" class="avatar-img">
+                        <label for="foto-upload" class="avatar-edit-btn" title="Alterar foto">
+                            <i class="ph ph-camera"></i>
+                        </label>
+                        <input type="file" id="foto-upload" accept="image/*" hidden>
+                    </div>
+                    <h3 id="profile-display-name">Pesquisador(a)</h3>
+                    <p id="profile-display-email" style="color: var(--text-muted); font-size: 0.9rem;">carregando email...</p>
+                    <span id="profile-display-role" class="tag tag-ibama" style="margin-top: 10px;">Estudante</span>
+                </div>
+
+                <div class="profile-form-card glass-card">
+                    <h3 style="color: var(--primary); margin-bottom: 1.5rem;">Dados Cadastrais</h3>
+                    <form id="form-perfil">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome-usuario">Nome Completo</label>
+                                <input type="text" id="nome-usuario" placeholder="Ex: João da Silva" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="data-nasc">Data de Nascimento</label>
+                                <input type="date" id="data-nasc" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Vínculo Acadêmico</label>
+                            <div class="radio-group">
+                                <label><input type="radio" name="vinculo" value="Estudante" checked> Estudante</label>
+                                <label><input type="radio" name="vinculo" value="Professor(a)"> Professor(a)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="universidade">Universidade / Instituição</label>
+                                <input type="text" id="universidade" placeholder="Ex: USP, Unicamp, etc." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="curso">Curso</label>
+                                <input type="text" id="curso" placeholder="Ex: Direito, Biologia..." required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ano-faculdade">Ano ou Semestre na Faculdade</label>
+                            <input type="text" id="ano-faculdade" placeholder="Ex: 5º Semestre" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Salvar Alterações</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quem Somos -->
+        <section id="sobre" class="content-section fade-in">
+             <div class="about-container">
+                 <div class="about-text">
+                     <h2>Instituto Sanfran Ambiental</h2>
+                     <p>Somos um núcleo de investigação académica dedicado à interface entre desenvolvimento económico e integridade ecológica.</p>
+                     <p>A nossa missão é democratizar dados jurídicos complexos, traduzindo o controlo de constitucionalidade ambiental no STF em análises rigorosas, acessíveis e fundamentadas para a sociedade e o mercado.</p>
+                 </div>
+                 <div class="about-image" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80');"></div>
+             </div>
+        </section>
+
+        <!-- ABA: HISTÓRICO DE ATIVIDADES -->
+        <section id="historico-atividades" class="content-section fade-in container audit-section-container">
+            <div class="section-header">
+                <h2>Histórico de Atividade</h2>
+                <p>Auditoria de alterações e cadastros dos últimos 30 dias.</p>
+            </div>
+
+            <div class="audit-wrapper">
+                <div class="audit-header">
+                    <h3><i class="ph ph-list-magnifying-glass"></i> Registro do Sistema</h3>
+                    <span class="tag-audit-realtime">Tempo Real</span>
+                </div>
+
+                <div id="logs-atividades-container" class="audit-container">
+                    <p class="audit-empty-message">Carregando trilha de atividades...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modais Genéricos -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content glass-card">
+            <span class="close-btn" id="fechar-login">&times;</span>
+            <div class="login-header">
+                <i class="ph ph-user-circle"></i>
+                <h2 id="modal-titulo">Acesso Restrito</h2>
+            </div>
+            
+            <form id="form-auth">
+                <input type="email" id="email-auth" placeholder="Seu e-mail" required>
+                <input type="password" id="senha-auth" placeholder="Sua senha" required>
+                <button type="submit" id="btn-submit-auth" class="btn-primary" style="width: 100%;">Entrar</button>
+            </form>
+            
+            <p class="auth-toggle">
+                <span id="texto-toggle">Não tem uma conta?</span> 
+                <a href="#" id="link-toggle">Cadastre-se</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL DE COMPARTILHAMENTO DE ACESSO -->
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content glass-card share-modal-card">
+            <span class="close-btn" id="fechar-share-modal">&times;</span>
+            <div class="login-header">
+                <i class="ph ph-share-network"></i>
+                <h2>Compartilhar Acesso</h2>
+            </div>
+            <p class="share-description">Adicione o e-mail de outros pesquisadores para permitir que eles editem esta análise de forma colaborativa.</p>
+            
+            <div class="share-input-group">
+                <input type="email" id="share-email-input" placeholder="E-mail do colaborador" class="share-input">
+                <button type="button" id="btn-add-share" class="btn-primary share-add-btn">Adicionar</button>
+            </div>
+            
+            <ul id="share-list" class="share-list">
+                <!-- Lista de emails injetada pelo JS -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMAÇÃO DE SENHA -->
+    <div id="password-confirm-modal" class="modal hidden">
+        <div class="modal-content glass-card confirm-pw-card">
+            <span class="close-btn" id="fechar-password-modal">&times;</span>
+            <div class="login-header">
+                <i class="ph ph-lock-key"></i>
+                <h2>Confirmação de Segurança</h2>
+            </div>
+            <p class="pw-confirm-text">Para registrar ou alterar esta ADI, confirme sua senha de acesso.</p>
+            
+            <form id="form-password-confirm">
+                <input type="password" id="confirm-password-input" class="pw-input-field" placeholder="Digite sua senha" required>
+                <div class="pw-action-buttons">
+                    <button type="button" id="btn-cancel-password" class="btn-action-delete">Cancelar</button>
+                    <button type="submit" id="btn-confirm-password" class="btn-primary">Confirmar e Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DA ADI EM TELA CHEIA -->
+    <div id="adi-modal" class="modal hidden">
+        <div class="modal-fullscreen">
+            <span class="close-btn-floating" id="fechar-adi" title="Fechar Tela Cheia">&times;</span>
+            <div class="adi-fullscreen-container fade-in">
+                
+                <div class="adi-header" style="margin-bottom: 2.5rem; padding-top: 2rem;">
+                    <span id="modal-adi-numero" class="tag tag-stf" style="font-size: 1rem; padding: 6px 15px;">ADI</span>
+                    <h2 id="modal-adi-titulo" style="color: var(--primary); margin-top: 15px; font-size: 2.5rem; line-height: 1.2;">Título da ADI</h2>
+                    <div id="modal-adi-proponentes" style="margin-top: 15px; display: flex; flex-wrap: wrap; gap: 8px;"></div>
+
+                    <div style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button id="btn-toggle-requerentes" style="background: #e0f2fe; color: #0284c7; border: 1px solid #bae6fd; padding: 8px 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;"><i class="ph ph-users-three" style="font-size: 1.2rem;"></i> Ver Requerentes</button>
+                        <button id="btn-toggle-amicus" style="background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; padding: 8px 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;"><i class="ph ph-handshake" style="font-size: 1.2rem;"></i> Ver Amicus Curiae</button>
+                        <button id="btn-toggle-dispositivos" style="background: #fef3c7; color: #d97706; border: 1px solid #fde68a; padding: 8px 16px; border-radius: 8px; font-size: 0.95rem; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;"><i class="ph ph-file-text" style="font-size: 1.2rem;"></i> Ver Dispositivos Questionados</button>
+                    </div>
+
+                    <!-- Painéis Ocultos Superiores -->
+                    <div id="painel-requerentes" style="display: none; margin-top: 20px; padding: 25px; background: #f8faf9; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+                        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                            <div style="flex: 1; min-width: 300px;">
+                                <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;"><i class="ph ph-list-bullets"></i> Lista de Requerentes</h3>
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                                    <input type="text" id="busca-req" placeholder="Buscar por nome..." style="flex: 2; min-width: 150px; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; outline: none; font-family: 'Inter', sans-serif;">
+                                    <select id="filtro-tipo-req" style="flex: 1; min-width: 150px; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; outline: none; font-family: 'Inter', sans-serif;">
+                                        <option value="todos">Todos os Tipos</option>
+                                    </select>
+                                </div>
+                                <ul id="lista-requerentes" style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 8px; max-height: 250px; overflow-y: auto; padding-right: 5px;"></ul>
+                            </div>
+                            <div style="flex: 1; min-width: 300px; display: flex; flex-direction: column;">
+                                <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;"><i class="ph ph-chart-pie-slice"></i> Distribuição por Tipo</h3>
+                                <div style="flex: 1; position: relative; min-height: 250px;"><canvas id="grafico-requerentes"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="painel-amicus" style="display: none; margin-top: 20px; padding: 25px; background: #f8faf9; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+                        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+                            <div style="flex: 1.5; min-width: 250px;">
+                                <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;"><i class="ph ph-list-bullets"></i> Lista de Amicus Curiae</h3>
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap;">
+                                    <input type="text" id="busca-ami" placeholder="Buscar entidade..." style="flex: 2; min-width: 150px; padding: 8px 12px; border-radius: 6px; border: 1px solid #cbd5e1; outline: none; font-family: 'Inter', sans-serif;">
+                                </div>
+                                <ul id="lista-amicus" style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 8px; max-height: 250px; overflow-y: auto; padding-right: 5px;"></ul>
+                            </div>
+                            <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column;">
+                                <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;"><i class="ph ph-chart-pie-slice"></i> Categorias</h3>
+                                <div style="flex: 1; position: relative; min-height: 200px;"><canvas id="grafico-amicus-tipo"></canvas></div>
+                            </div>
+                            <div style="flex: 1; min-width: 200px; display: flex; flex-direction: column;">
+                                <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;"><i class="ph ph-scales"></i> Posicionamentos</h3>
+                                <div style="flex: 1; position: relative; min-height: 200px;"><canvas id="grafico-amicus-pos"></canvas></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="painel-dispositivos" style="display: none; margin-top: 20px; padding: 25px; background: #f8faf9; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);">
+                        <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #e2e8f0;">
+                            <i class="ph ph-file-text"></i> Dispositivos Questionados e Decisões
+                        </h3>
+                        <ul id="lista-dispositivos" style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 12px; max-height: 350px; overflow-y: auto; padding-right: 5px;"></ul>
+                    </div>
+                </div>
+
+                <div class="adi-body">
+                    <div style="display: flex; gap: 3rem; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="flex: 2; min-width: 60%;">
+                            <div style="display: flex; gap: 2rem; margin-bottom: 2.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.5rem; align-items: center; flex-wrap: wrap;">
+                                <p style="color: var(--text-muted); font-size: 1.1rem; margin: 0;"><strong>Relator:</strong> <span id="modal-adi-relator"></span></p>
+                                <p style="color: var(--accent); font-size: 1.1rem; margin: 0;"><strong>Status:</strong> <span id="modal-adi-status"></span></p>
+                                <a id="modal-adi-linkbtn" href="#" target="_blank" class="btn-primary" style="margin-left: auto; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                    <i class="ph ph-arrow-square-out"></i> Ver Processo no STF
+                                </a>
+                            </div>
+                            
+                            <div style="margin-bottom: 3rem;">
+                                <h3 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.4rem;">Análise Técnica</h3>
+                                <p id="modal-adi-analise" style="line-height: 1.8; white-space: pre-line; color: var(--text-dark); font-size: 1.15rem;"></p>
+                            </div>
+
+                            <div style="margin-bottom: 3rem;">
+                                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.4rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="ph ph-clock"></i> Linha do Tempo do Processo
+                                </h3>
+                                <div id="modal-adi-timeline" class="timeline-container"></div>
+                            </div>
+                        </div>
+
+                        <!-- Menu Lateral -->
+                        <aside style="flex: 1; min-width: 300px; background: #f8faf9; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);">
+                            <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">
+                                <i class="ph ph-scales"></i> Princípios Invocados
+                            </h3>
+                            <div id="modal-adi-principios-preview" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 2.5rem;"></div>
+
+                            <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">
+                                <i class="ph ph-books"></i> Prévia de Doutrina
+                            </h3>
+                            <div id="modal-adi-doutrinas-preview" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 2.5rem;"></div>
+
+                            <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">
+                                <i class="ph ph-bank"></i> Dispositivos Constitucionais Invocados
+                            </h3>
+                            <div id="modal-adi-constitucionais-preview" style="display: flex; flex-direction: column; gap: 12px;"></div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais de Listas Completas -->
+    <div id="doutrinas-modal" class="modal hidden">
+        <div class="modal-content glass-card" style="max-width: 800px; width: 90%; max-height: 85vh; display: flex; flex-direction: column;">
+            <span class="close-btn" id="fechar-doutrinas">&times;</span>
+            <div class="login-header" style="margin-bottom: 1.5rem; text-align: left;">
+                <h2 style="color: var(--primary); font-size: 1.5rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="ph ph-books" style="font-size: 2rem;"></i> Mapeamento Doutrinário Completo
+                </h2>
+            </div>
+            <ul id="lista-doutrinas-completa" style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; overflow-y: auto; padding-right: 5px; flex-grow: 1;"></ul>
+        </div>
+    </div>
+
+    <div id="principios-modal" class="modal hidden">
+        <div class="modal-content glass-card" style="max-width: 800px; width: 90%; max-height: 85vh; display: flex; flex-direction: column;">
+            <span class="close-btn" id="fechar-principios">&times;</span>
+            <div class="login-header" style="margin-bottom: 1.5rem; text-align: left;">
+                <h2 style="color: var(--primary); font-size: 1.5rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="ph ph-scales" style="font-size: 2rem;"></i> Mapeamento de Princípios Completo
+                </h2>
+            </div>
+            <ul id="lista-principios-completa" style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; overflow-y: auto; padding-right: 5px; flex-grow: 1;"></ul>
+        </div>
+    </div>
+
+    <div id="constitucionais-modal" class="modal hidden">
+        <div class="modal-content glass-card" style="max-width: 800px; width: 90%; max-height: 85vh; display: flex; flex-direction: column;">
+            <span class="close-btn" id="fechar-constitucionais">&times;</span>
+            <div class="login-header" style="margin-bottom: 1.5rem; text-align: left;">
+                <h2 style="color: var(--primary); font-size: 1.5rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="ph ph-bank" style="font-size: 2rem;"></i> Mapeamento Constitucional Completo
+                </h2>
+            </div>
+            <ul id="lista-constitucionais-completa" style="list-style-type: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; overflow-y: auto; padding-right: 5px; flex-grow: 1;"></ul>
+        </div>
+    </div>
+
+   <div id="movimento-modal" class="modal hidden">
+        <div class="modal-content glass-card" style="max-width: 500px;">
+            <span class="close-btn" id="fechar-movimento">&times;</span>
+            <div class="login-header" style="margin-bottom: 1.5rem;">
+                <i class="ph ph-files" style="font-size: 2.5rem; color: var(--primary);"></i>
+                <h2 id="titulo-modal-mov" style="color: var(--text-dark); font-size: 1.5rem;">Nova Movimentação</h2>
+            </div>
+            
+            <form id="form-movimento">
+                <div class="form-group">
+                    <label>Data do Andamento</label>
+                    <input type="date" id="mov-data" required style="width: 100%;">
+                </div>
+                <div class="form-group">
+                    <label>Descrição do Andamento</label>
+                    <textarea id="mov-descricao" rows="3" placeholder="Ex: Aprovado na CCJC com substitutivo..." required style="width: 100%;"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Anexar Arquivo (PDF, Imagem)</label>
+                    <input type="file" id="mov-arquivo" style="width: 100%; padding: 8px;">
+                    <small id="mov-arquivo-help" style="color: var(--text-muted); font-size: 0.8rem; display: none; margin-top: 5px;">* Deixe vazio se não quiser alterar o arquivo atual.</small>
+                </div>
+                <div class="form-group">
+                    <label>Link Externo (Vídeo, Notícia, Drive) - Opcional</label>
+                    <input type="url" id="mov-link-externo" placeholder="https://..." style="width: 100%;">
+                </div>
+                <button type="submit" id="btn-submit-mov" class="btn-primary" style="width: 100%; margin-top: 1rem;">Registrar Movimentação</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MODAL DO CONGRESSO EM TELA CHEIA (Mantido oculto no código para futuro) -->
+    <div id="congresso-modal" class="modal hidden">
+        <div class="modal-fullscreen">
+            <span class="close-btn-floating" id="fechar-congresso" title="Fechar Tela Cheia">&times;</span>
+            <div class="adi-fullscreen-container fade-in">
+                
+                <div class="adi-header" style="margin-bottom: 2.5rem; padding-top: 2rem;">
+                    <span id="modal-cong-tipo" class="tag tag-congresso" style="font-size: 1rem; padding: 6px 15px;">PL</span>
+                    <span id="modal-cong-regime" class="tag" style="background: #fee2e2; color: #dc2626; font-size: 1rem; padding: 6px 15px; margin-left: 10px;">Regime</span>
+                    
+                    <h2 id="modal-cong-numero" style="color: #db2777; margin-top: 15px; font-size: 2.5rem; line-height: 1.2;">Número do Projeto</h2>
+                    <p id="modal-cong-ementa" style="font-size: 1.1rem; color: var(--text-muted); font-style: italic; margin-top: 10px; border-left: 4px solid #db2777; padding-left: 15px;"></p>
+                    
+                    <div style="margin-top: 15px;">
+                        <p style="margin: 0; color: var(--text-dark);"><strong>Autoria:</strong> <span id="modal-cong-autor"></span></p>
+                    </div>
+                </div>
+
+                <div class="adi-body">
+                    <!-- PARTE SUPERIOR DIVIDIDA EM COLUNAS -->
+                    <div style="display: flex; gap: 3rem; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="flex: 2; min-width: 60%;">
+                            <div style="display: flex; gap: 2rem; margin-bottom: 2.5rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 1.5rem; align-items: center; flex-wrap: wrap; background: #fdf2f8; padding: 1.5rem; border-radius: 12px;">
+                                <div>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Casa e Comissão</p>
+                                    <p style="color: #db2777; font-size: 1.1rem; margin: 0; font-weight: 600;"><span id="modal-cong-casa"></span> (<span id="modal-cong-comissao"></span>)</p>
+                                </div>
+                                <div>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Relator Atual</p>
+                                    <p style="color: var(--text-dark); font-size: 1.1rem; margin: 0; font-weight: 600;"><span id="modal-cong-relator"></span> <span class="tag" style="background: #fff; border: 1px solid #e2e8f0; color: #475569;" id="modal-cong-posicao"></span></p>
+                                </div>
+                                <a id="modal-cong-linkbtn" href="#" target="_blank" class="btn-primary" style="background: #db2777; margin-left: auto; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+                                    <i class="ph ph-arrow-square-out"></i> Ver Publicação Oficial
+                                </a>
+                            </div>
+                            
+                            <div style="margin-bottom: 3rem;">
+                                <h3 style="color: #db2777; margin-bottom: 1rem; font-size: 1.4rem;">Resumo de Impacto no Licenciamento</h3>
+                                <p id="modal-cong-analise" style="line-height: 1.8; white-space: pre-line; color: var(--text-dark); font-size: 1.15rem;"></p>
+                                <div id="modal-cong-institutos" style="margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap;"></div>
+                            </div>
+
+                            <div style="margin-bottom: 1rem;">
+                                <h3 style="color: #db2777; margin-bottom: 1.5rem; font-size: 1.4rem; display: flex; align-items: center; gap: 10px;">
+                                    <i class="ph ph-file-dashed"></i> Outras Normas Afetadas
+                                </h3>
+                                <ul id="modal-cong-normas" style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px;"></ul>
+                            </div>
+                        </div>
+
+                        <aside style="flex: 1; min-width: 300px; background: #f8faf9; padding: 1.5rem; border-radius: 12px; border: 1px solid #e2e8f0;">
+                            <h3 style="color: #db2777; margin-bottom: 1.5rem; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">
+                                <i class="ph ph-users"></i> Mapa de Participação
+                            </h3>
+                            <div id="modal-cong-atores" style="display: flex; flex-direction: column; gap: 12px;"></div>
+                        </aside>
+                    </div>
+
+                    <!-- ECRÃ INTEIRO -->
+                    <div style="margin-top: 4rem; border-top: 2px dashed #fbcfe8; padding-top: 3rem;">
+                        <h3 style="color: #db2777; margin-bottom: 2rem; font-size: 1.8rem; display: flex; align-items: center; gap: 10px; justify-content: center;">
+                            <i class="ph ph-text-align-justify"></i> Análise do Texto da Norma
+                        </h3>
+                        <div id="modal-cong-trechos" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 1000px; margin: 0 auto;"></div>
+                    </div>
+
+                    <div style="margin-top: 4rem; padding-top: 2rem;">
+                        <h3 style="color: #db2777; margin-bottom: 2rem; font-size: 1.5rem; display: flex; align-items: center; gap: 10px; justify-content: center;">
+                            <i class="ph ph-clock"></i> Linha do Tempo da Tramitação
+                        </h3>
+                        <div id="modal-cong-timeline" class="timeline-container" style="max-width: 800px; margin: 0 auto;"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="modern-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-section">
+                <div class="logo">
+                    <img src="Images/favicon.png" class="custom-logo-icon" alt="Logo Observatório">
+                    <h2>Instituto Sanfran Ambiental</h2>
+                </div>
+                <p>Observatório dedicado ao monitoramento técnico e jurídico da transição do licenciamento ambiental no Brasil.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column links-section">
+                <h3>Observatório</h3>
+                <ul>
+                    <li><a href="#" data-target="stf">De Olho no STF</a></li>
+                    <li><a href="#" data-target="metodologia">Metodologia de Análise</a></li>
+                    <li><a href="#" data-target="licenciamento">O Licenciamento</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column links-section">
+                <h3>Institucional</h3>
+                <ul>
+                    <li><a href="#" data-target="sobre">Quem Somos</a></li>
+                    <li><a href="#">Transparência</a></li>
+                    <li><a href="#">Relatórios</a></li>
+                    <li><a href="#">Privacidade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-section">
+                <h3>Contato</h3>
+                <p><i class="ph ph-envelope-simple"></i> contato@sanfran.org.br</p>
+                <p><i class="ph ph-map-pin"></i> Largo São Francisco, São Paulo</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <p>2026 &copy; <strong>Instituto Sanfran Ambiental</strong>. Todos os direitos reservados.</p>
+                <p class="dev-tag">Monitoramento Jurídico</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WIDGET FLUTUANTE DE CONTATO -->
+    <div class="floating-widget-container">
+        <div id="contact-popup" class="contact-popup glass-card">
+            <div class="popup-header">
+                <h3>Precisa de ajuda?</h3>
+                <span id="close-popup" class="close-popup-btn">&times;</span>
+            </div>
+            <p>Se tem alguma dúvida sobre o licenciamento, a equipa do Instituto está disponível para ajudar.</p>
+            <div class="popup-actions">
+                <a href="https://wa.me/5511999999999" target="_blank" class="btn-whatsapp">
+                    <i class="ph ph-whatsapp-logo"></i> Chamar no WhatsApp
+                </a>
+                <a href="mailto:contato@sanfran.org.br" class="btn-email">
+                    <i class="ph ph-envelope-simple"></i> Enviar E-mail
+                </a>
+            </div>
+        </div>
+        
+        <button id="floating-contact-btn" class="floating-contact-btn" title="Fale Conosco">
+            <i class="ph ph-whatsapp-logo"></i>
+        </button>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
